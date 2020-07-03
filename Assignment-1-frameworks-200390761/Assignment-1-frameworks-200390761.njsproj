@@ -30,33 +30,52 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.js" />
-    <Content Include="routes\index.js" />
-    <Content Include="routes\users.js" />
+    <Content Include="Models\Assignment.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\AboutMe.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\ContactMe.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\HomePage.js" />
+    <Content Include="routes\Projects.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\Services.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="package.json" />
     <Content Include="public\stylesheets\main.css" />
     <Content Include="README.md" />
-    <Content Include="views\About me.pug">
+    <Content Include="views\AboutMe.pug">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="views\Contact Me.pug">
+    <Content Include="views\ContactMe.pug">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="views\Home Page.pug">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="views\index.pug" />
+    <Content Include="views\HomePage.pug" />
     <Content Include="views\layout.pug" />
     <Content Include="views\error.pug" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Models\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
     <Folder Include="public\stylesheets\" />
     <Folder Include="routes\" />
     <Folder Include="views\" />
+    <Folder Include="views\partials\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="views\partials\footer.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\partials\header.pug">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\Projects .pug">
       <SubType>Code</SubType>
     </Content>

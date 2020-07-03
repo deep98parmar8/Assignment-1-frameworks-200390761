@@ -6,13 +6,31 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+const MongoClient = require('mongodb').MongoClient;
+//code bellow is connection to my mongodb 
+const uri = "mongodb + srv://house:123@cluster0.1qqfw.mongodb.net/house?retryWrites=true&w=majority"
+try {
+    mongoose.connect(uri, { useNewUrlParser: true });
+    var db = mongoose.connection;
+    db.on('error', function (err) {
+        console.log(err);
+    });
+    db.once('open', function (callback) {
+        console.log('Connected to MongoDB');
+    });
+} catch (err) {
+    console.log("Error : " + err);
+}
 
-var routes = require('./routes/index');
-var AboutMe = require('./routes/About me');
-var ContactMe = require('./routes/Contact Me');
+//creating variavles to call 
+var routes = require('./routes/HomePage');
+var AboutMe = require('./routes/Aboutme');
+var ContactMe = require('./routes/ContactMe');
 var Services = require('./routes/Services');
-var HomePage = require('./routes/Home');
+var HomePage = require('./routes/HomePage');
 var Projects = require('./routes/Projects');
+
 
 
 var app = express();
@@ -28,9 +46,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+//using app.use 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/AboutMe', AboutMe);
+app.use('/ContactMe', ContactMe);
+app.use('/Services', Services);
+app.use('/HomePage', HomePage);
+app.use('/Projects', Projects);
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
